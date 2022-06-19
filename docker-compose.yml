@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: AnimalsWeb.Client/Dockerfile
+    ports:
+       - "5000:443"
     environment:
        Connection_String: "Server=mssql-server; Initial Catalog=PetShopTest; User ID=SA; PASSWORD=Docker2022 "
             
