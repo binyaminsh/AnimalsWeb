@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  animalsweb.client:
+    image: ${DOCKER_REGISTRY-}animalswebclient
+    build:
+      context: .
+      dockerfile: AnimalsWeb.Client/Dockerfile
+    environment:
+       Connection_String: "Server=mssql-server; Initial Catalog=PetShopTest; User ID=SA; PASSWORD=Docker2022 "
+            
+                
+
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2019-CU16-GDR1-ubuntu-20.04
+    environment:
+        ACCEPT_EULA: "Y"
+        SA_PASSWORD: "Docker2022"
+        MSSQL_PID: Express
+    ports:
+      - "1433:1433"  

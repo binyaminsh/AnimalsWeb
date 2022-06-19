@@ -1,0 +1,14 @@
+﻿@model Animal
+
+<div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+	<div class="card rounded" style="width: 18rem;">
+		<img src="~/Images/@Model.PhotoUrl" class="card-img-top" alt="@Model.Name">
+		<div class="card-body d-flex flex-column">
+			<h5 class="card-title">@Model.Name</h5>
+			<h3>@Model.Category.Name</h3>
+			<p class="card-text">@Model.Description</p>
+			<p class="card-text">Number of comments: @Model.Comments.Count</p>
+			<a asp-controller="Animal" asp-action="Details" asp-route-id="@Model.AnimalId" class="btn btn-primary mt-auto align-self-start">Details</a>
+			</div>
+	</div>
+</div>

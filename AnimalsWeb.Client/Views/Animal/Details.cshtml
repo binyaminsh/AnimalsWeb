@@ -1,0 +1,76 @@
+﻿@model AddCommentViewModel
+@{
+	ViewData["Title"] = "Details";
+}
+
+<div>
+	<h4>Details</h4>
+	<hr />
+	<dl class="row">
+		<dd class="col-sm-12">
+			<img src="~/Images/@Model.Animal!.PhotoUrl" />
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Animal!.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Animal!.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Animal!.Category)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Animal!.Category.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Animal!.Age)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Animal!.Age)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Animal!.Description)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Animal!.Description)
+		</dd>
+	</dl>
+
+
+	<div class="border border-secondary rounded" style="width: 18rem;">
+		<div class="card-header" style="background-color:dimgray">
+			@Html.DisplayNameFor(model => model.Animal!.Comments)
+		</div>
+		<ul class="list-group list-group-flush">
+			@foreach (var comment in @Model.Animal.Comments)
+			{
+				<il class="list-group-item">
+					@comment.Content
+					<a asp-action="DeleteComment" asp-controller="Admin" asp-route-commentId="@comment.CommentId">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+							<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+						</svg>
+					</a>
+				</il>
+			}
+		</ul>
+	</div>
+
+	<form asp-route-id="@Model.Animal.AnimalId" asp-action="Details">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="form-group mb-3">
+			<label asp-for="Content" class="control-label"></label>
+			<input asp-for="Content" class="form-control" />
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Add</button>
+		</div>
+	</form>
+</div>
+
+@section Scripts {
+    @{
+	await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

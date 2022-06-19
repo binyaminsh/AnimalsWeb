@@ -1,0 +1,11 @@
+﻿
+@{
+	ViewData["Title"] = "Search";
+}
+
+<div class="row g-3">
+	@foreach (var animal in Model)
+	{
+		<partial name="AnimalsSummary" model="animal" />
+	}
+</div>

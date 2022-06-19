@@ -1,0 +1,12 @@
+﻿@{
+	ViewData["Title"] = "List";
+}
+
+<h3>@Model.CurrentCategory</h3>
+<div class="row g-3">
+	@foreach (var animal in Model.Animals)
+	{
+		<partial name="AnimalsSummary" model="animal" />
+	}
+</div>
+

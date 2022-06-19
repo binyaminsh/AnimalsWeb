@@ -1,0 +1,43 @@
+﻿@model Animal
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<div>
+	<h4>Details</h4>
+	<hr />
+	<dl class="row">
+		<dd class="col-sm-12">
+			<img src="~/Images/@Model.PhotoUrl" />
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Category)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Category.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Age)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Age)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Description)
+		</dd>
+	</dl>
+</div>
+	<form asp-action="DeleteConfirmed" asp-route-id="@Model.AnimalId">
+		<input type="hidden" asp-for="AnimalId" />
+		<input type="submit" value="Delete" class="btn btn-danger" />
+	</form>
+	
