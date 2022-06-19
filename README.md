@@ -1,2 +1,2 @@
 # Animals Web
-Simple web catalog of animals CRUD operations built with asp.net core 6 mvc.
+Simple web catalog of animals that demonstrate CRUD operations, Built with asp.net core 6 mvc.
