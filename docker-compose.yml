@@ -2,12 +2,13 @@ version: '3.4'
 
 services:
   animalsweb.client:
-    image: ${DOCKER_REGISTRY-}animalswebclient
+    image: bshraib/animalswebclient:latest
     build:
       context: .
       dockerfile: AnimalsWeb.Client/Dockerfile
     ports:
        - "5000:443"
+       - "5001:80"
     environment:
        Connection_String: "Server=mssql-server; Initial Catalog=PetShopTest; User ID=SA; PASSWORD=Docker2022 "
             
