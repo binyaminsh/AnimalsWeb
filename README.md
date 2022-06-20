@@ -8,4 +8,4 @@ You can run the project with docker-compose.
   ```
 * ports
   ```sh
-  app port: 5000/50001 server port: 1433
+  app port: 5000/5001 server port: 1433
