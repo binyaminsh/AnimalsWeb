@@ -10,7 +10,9 @@ services:
        - "5000:443"
        - "5001:80"
     environment:
-       Connection_String: "Server=mssql-server; Initial Catalog=PetShopTest; User ID=SA; PASSWORD=Docker2022 "
+       Connection_String: "Server=mssql-server; Initial Catalog=PetShopTest; User ID=SA; PASSWORD=Docker2022"
+    depends_on:
+      - mssql-server
             
                 
 
